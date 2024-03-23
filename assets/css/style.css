@@ -1,0 +1,206 @@
+body {
+    background-color: #1c1b19;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+nav ul li {
+    list-style-type: none;
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #fcd462;
+}
+
+.navs a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-family: "Rubik";
+}
+
+.navs a:hover {
+    color: #fcd462;
+}
+
+.logo img {
+    width: 200px;
+    height: 52px;
+}
+
+.menu ul li {
+    list-style-type: none;
+    padding: 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+}
+
+.header {
+    padding: 20px;
+    margin: 0 20px;
+}
+
+.call {
+    position: absolute;
+    right: -60px;
+    top: 20%;
+    transform: rotate(-270deg);
+}
+
+.call p {
+    color: white;
+}
+
+
+/* navbar menu start */
+
+.nav #nav-check {
+    display: none;
+}
+
+.nav .nav-btn {
+    display: none;
+}
+
+.nav {
+    height: 50px;
+    background-color: transparent;
+    width: 100%;
+    position: relative;
+}
+
+.nav .nav-header {
+    display: inline;
+}
+
+.nav .nav-header .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    padding: 10px 10px 10px 10px;
+}
+
+.nav .nav-link {
+    padding: 0;
+    display: inline;
+    float: right;
+    font-size: 18px;
+    font-family: "Prata";
+}
+
+.nav .nav-link li {
+    display: inline-block;
+    /* Added this to display list items horizontally */
+    overflow: hidden;
+}
+
+
+/* ---------------------SubMenu list------------------*/
+
+.nav .nav-link .submenu {
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    width: 230px;
+    z-index: 1;
+}
+
+.nav .nav-link li:hover .submenu {
+    display: block;
+}
+
+.nav .nav-link .submenu a {
+    display: block;
+    position: relative;
+    background-color: #353530;
+    color: rgb(121, 121, 121);
+    font-size: 16px;
+    padding: 15px 25px;
+}
+
+.nav .nav-link .submenu a:hover {
+    background-color: #fcd462;
+    color: #484846;
+}
+
+.nav .nav-link .submenu a:before {
+    content: '';
+    opacity: 0;
+}
+
+.nav .nav-link .submenu a:hover:before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 6px;
+}
+
+.nav .nav-link a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav .nav-link a:hover {
+    color: #fcd462;
+}
+
+.account ul li {
+    list-style-type: none;
+    padding: 20px;
+    border: 1px solid black;
+    margin: 0 5px;
+}
+
+.account ul li a {
+    color: white;
+}
+
+.account ul li:hover {
+    background-color: #fcd462;
+}
+
+.account ul {
+    margin: 0;
+}
+
+.card-body a {
+    background-color: #fcd462;
+    color: #353530;
+    border: none;
+}
+
+.card-body a:hover {
+    background-color: #353530;
+    color: #ffff;
+    border: 1px solid #ffff;
+}
+
+.btn-primary {
+    background-color: #fcd462;
+    color: #353530;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #353530;
+    color: #ffff;
+    border: 1px solid #ffff;
+    position: fixed;
+}

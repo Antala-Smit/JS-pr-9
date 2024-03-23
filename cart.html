@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- icon link -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- counter link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- swiper link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- style.css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="col-xl-12">
+            <nav class="d-xl-flex d-sm-flex align-items-center justify-content-between">
+                <div class="col-xl-2">
+                    <ul class="d-xl-flex d-flex">
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                </div>
+                <div class="col-xl-2 navs d-xl-flex d-sm-flex d-none justify-content-end">
+                    <a href="#">Wishlist</a>
+                    <a href="cart.html">Cart</a>
+                </div>
+                </ul>
+            </nav>
+        </div>
+        <div class="header" style="background-color: #353530;">
+            <div class="col-12 d-xl-flex d-flex align-items-center">
+                <div class="col-xl-3 col-4 logo align-items-center">
+                    <img src="assets/img/logo.png" alt="">
+                </div>
+                <div class="col-xl-6 menu d-xl-flex d-flex d-none justify-content-end align-items-center">
+                    <div class="nav">
+                        <div class="nav-btn">
+                            <label for="nav-check ">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </label>
+                        </div>
+                        <div class="nav-link">
+                            <li>
+                                <a href="index.html" target="_blank">Home</a>
+                            </li>
+                            <li><a href="#" target="_blank">Blog</a>
+                                <div class="submenu">
+                                    <a href="">Blog List</a>
+                                    <a href="">Blog Grid</a>
+                                    <a href="">Blog Details</a>
+                                </div>
+                            </li>
+                            <li><a href="#" target="_blank">Categories</a>
+                                <div class="submenu">
+                                    <a href="">Rings</a>
+                                    <a href="">Earrings</a>
+                                    <a href="">Bracelets</a>
+                                    <a href="">Pendants</a>
+                                    <a href="">Necklaces</a>
+                                </div>
+                            </li>
+                            <li><a href="#" target="_blank">Pages</a>
+                                <div class="submenu">
+                                    <a href="">About</a>
+                                    <a href="">Classification</a>
+                                    <a href="">Gallery</a>
+                                    <a href="">Our Team</a>
+                                    <a href="">404</a>
+                                </div>
+                            </li>
+                            <li><a href="#" target="_blank">Shop</a>
+                                <div class="submenu">
+                                    <a href="">Shop Archive</a>
+                                    <a href="">Shop Details</a>
+                                    <a href="">Cart</a>
+                                    <a href="">Checkout</a>
+                                    <a href="">My account</a>
+                                    <a href="">Wishlist</a>
+                                </div>
+                            </li>
+                            <li><a href="#" target="_blank">Contact Us</a></li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-8 d-xl-flex d-flex account align-items-center justify-content-end">
+                    <ul class="d-xl-flex d-flex">
+                        <li><a href="#"><i class="fa-regular fa-user"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                        <li><a href="#" class="toggle"><i class="fa-solid fa-bars"></i></a></li>
+                        <li><a href="cart.html"><i class="fa-solid fa-cart-arrow-down"></i> </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row cart" style="color: white;">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">QTY</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart">
+
+                </tbody>
+            </table>
+            <h1 id="finaltotal"></h1>
+        </div>
+
+
+    </div>
+</body>
+
+
+<script type="text/javascript">
+    const viewcart = () => {
+        let allcart = JSON.parse(localStorage.getItem('cart')) || [];
+        let tbl = "";
+        let sum = 0;
+
+        allcart.map((val) => {
+
+            tbl += `
+                        <tr>
+                            <td style="font-size: 18px">${val.id}</th>
+                            <td style="font-size: 22px">${val.name}</td>
+                            <td><img src="${val.img}" width="100"/></td>
+                            <td style="font-size: 19px">${val.price}</td>
+                            <td style="color: #353530;">
+                                <input type="number" id="qty_${val.id}" onchange="editcart(${val.id})" value="${val.qty}"/>
+                            </td>
+                            <td>${val.price * val.qty}</td>
+                            <td><button class="btn btn-primary" onclick="deleteItem(${val.id})">Delete</button></td>
+                        </tr>
+                    `;
+            sum = sum + val.qty * val.price;
+
+        });
+        document.getElementById("cart").innerHTML = tbl;
+        document.getElementById("finaltotal").innerHTML = `Final Total:- ${sum}`;
+    };
+
+    const editcart = (id) => {
+        let qty = document.getElementById(`qty_${id}`).value;
+        let all = JSON.parse(localStorage.getItem("cart")) || [];
+        all.map((val) => {
+            if (val.id == id) {
+                val.qty = qty;
+            }
+        });
+        localStorage.setItem("cart", JSON.stringify(all));
+        viewcart();
+    }
+    const deleteItem = (id) => {
+        let all = JSON.parse(localStorage.getItem("cart")) || [];
+        all = all.filter(item => item.id !== id);
+        localStorage.setItem("cart", JSON.stringify(all));
+        viewcart();
+    }
+
+    viewcart();
+</script>
+
+</html>
